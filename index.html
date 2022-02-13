@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel</title>
+    <style>
+      .carousel img {
+        display: none;
+        width: 10vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Carousel</h1>
+    <div class="carousel">
+      <img alt="First" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Un1.svg/1200px-Un1.svg.png" />
+      <img alt="Second" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Deux.svg/1200px-Deux.svg.png" />
+      <img alt="Third" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Trois.svg/1200px-Trois.svg.png" />
+      <img alt="Fourth" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Quatre.svg/1200px-Quatre.svg.png" />
+      <img alt="Fifth" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cinq.svg/1200px-Cinq.svg.png" />
+    </div>
+    <script>
+      const carouselImages = document.querySelectorAll('.carousel img');
+      let currentIndex = 0;
+      const lastIndex = carouselImages.length - 1;
+      
+      setInterval(() => {
+        if (currentIndex !== 0) {
+          carouselImages[currentIndex - 1].style.display = "none";
+        } else {
+          carouselImages[lastIndex].style.display = "none";
+        }
+        carouselImages[currentIndex].style.display = "block";
+        if (currentIndex < lastIndex) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
